@@ -74,7 +74,8 @@ def gen_frames(skip_frames=1):
             elapsed_time = time.time() - start_time
             fps = int(frame_count / elapsed_time)
             # Draw the frame rate on the video stream
-            cv2.putText(img, "FPS: " + str(fps), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)  
+            cv2.putText(img, "FPS: " + str(fps), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 2)  
+            cv2.putText(img, "count: " + str(frame_count), (10, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 2) 
             yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + img + b'\r\n')
             continue
@@ -110,7 +111,7 @@ def gen_frames(skip_frames=1):
         fps = int(frame_count / elapsed_time)
         # Draw the frame rate on the video stream
         cv2.putText(img, "FPS: " + str(fps), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)            
-                    
+        cv2.putText(img, "count: " + str(frame_count), (10, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0), 2) 
         # Encode the image to send it as JPEG format data to the network
         ret, buffer = cv2.imencode('.jpg', img)
         img = buffer.tobytes()
