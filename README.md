@@ -28,4 +28,4 @@ run the file: server.py
 ```
 Once the server script is ran successfuly you can navigate to http://localhost:8080 or the link that is given by the console.
 
-Video :
+Video : https://youtu.be/LU8XtTWtjbY
